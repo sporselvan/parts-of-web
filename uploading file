@@ -1,0 +1,26 @@
+in html 
+
+<form action="index.php/Welcome/upload_file" method="post" enctype="multipart/form-data">
+
+     <input type="file" name="image" id="image"><br><br>
+
+     <input type="submit" value="upload">
+ 
+ </form>
+ 
+ in controller
+ 
+ public function upload_file(){
+             
+		$config['allowed_types'] = 'jpg|png|jpeg';
+		$config['upload_path'] = './assets/';
+        $config['encrypt_name'] = true;
+
+		$this-> load -> library('upload',$config);
+
+		if ($this -> upload -> do_upload('image')) {
+			print_r($this-> upload -> data());
+		}else{
+			print_r($this -> upload -> display_errors());
+		} 
+	}
