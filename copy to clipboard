@@ -1,0 +1,8 @@
+<input type="text" id="passkey" placeholder="type something to copy">   //input for text
+<button onClick="copy()">copy</button>     // trigger to copy string
+
+function copy(){                          //function for copy text to clipboard
+   let pass = document.getElementById('passkey');   
+   pass.select();
+   document.execCommand("copy");
+}
